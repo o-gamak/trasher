@@ -1,0 +1,32 @@
+api:
+  token: ${oc.env:TINVEST_TOKEN, null}
+  use_sandbox: true
+  sandbox_token: ${oc.env:TINVEST_SANDBOX_TOKEN, ""}
+  account_id: ${oc.env:TINVEST_ACCOUNT_ID, ""}
+  timeout: 15
+  retries: 3
+  request_delay: 0.2
+  price_batch_size: 200
+  price_batch_delay: 1.0
+scanner:
+  currency: rub
+  min_months: 6
+  max_months: 24
+  min_ytm_annual: 20.0
+  medium_ytm_threshold: 30.0
+  junk_ytm_threshold: 40.0
+portfolio:
+  budget: 100000
+  slots: 30
+  max_per_issuer: 3
+  issuer_key_length: 10
+  dry_run: true
+output:
+  dir: ../results
+  excel_file: junk_analysis.xlsx
+  top_n_excel: 100
+  preview_rows: 15
+  save_csv: true
+app:
+  log_level: INFO
+  confirm: true
